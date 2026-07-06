@@ -1,0 +1,13 @@
+{
+  "id": "d7nkbo0doix98hosyyy9w6lu2uwpcpr2",
+  "name": "Pontarea – Yachting, Training & Events",
+  "description": "Sportbootführerschein B in 7 Tagen – Intensivkurse in Kroatien. Dazu Yachtcharter, Retreats & Events auf See.",
+  "url": "https://pontarea.de",
+  "port": 6109,
+  "ogImage": "/og-image.png",
+  "themeColor": "#0a3d6b",
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "@pontarea"
+  }
+}

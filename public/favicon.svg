@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="#0a3d6b"/>
+
+  <!-- Main sail (white, left-leaning triangle) -->
+  <path d="M31 9 L31 43 L12 43 Z" fill="white" opacity="0.95"/>
+
+  <!-- Jib sail (blue, right-leaning triangle) -->
+  <path d="M31 16 L31 43 L47 43 Z" fill="#05B3E3" opacity="0.9"/>
+
+  <!-- Mast -->
+  <line x1="31" y1="7" x2="31" y2="43" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Hull -->
+  <path d="M9 43 Q31 53 55 43 L51 47 Q31 59 13 47 Z" fill="white"/>
+
+  <!-- Water line 1 -->
+  <path d="M4 53 Q12 50 20 53 Q28 56 36 53 Q44 50 52 53 Q58 55 60 53" stroke="#05B3E3" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.9"/>
+
+  <!-- Water line 2 -->
+  <path d="M6 58 Q14 55 22 58 Q30 61 38 58 Q46 55 54 58" stroke="#35509F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+</svg>
