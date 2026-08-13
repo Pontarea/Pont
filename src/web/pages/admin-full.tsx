@@ -104,6 +104,7 @@ function getDefaultPontareaContent(): Record<string, any> {
     contact: { name: "Bogdan Zambrovskij", role: "Segeltrainer", address: "Konstanzer Str. 46", city: "80809 München", email: "info@pontarea.de", phone: "+49 176 444 37667", whatsapp: "+491764443667" },
     logos: { mainLogo: "./pontarea-logo.svg", favicon: "./favicon.svg", ogImage: "./og-image.webp" },
     seo: { title: "Pontarea – Yachting, Training & Events in Kroatien", description: "Sportbootführerschein- & Kapitänskurse, Yachtcharter sowie Retreats, Teambuilding & Events auf See in Marina Dalmacija, Kroatien. Für Segler, Coaches, Trainer und Unternehmen.", keywords: "Segelkurs, Kapitänskurs, Sportbootführerschein, Yachtcharter Kroatien, Yacht mieten, Events auf See, Kroatien, Marina Dalmacija, Zadar, Sukošan, Skipper Lizenz, Retreat auf See, Yacht Retreat, Teambuilding Yacht, Coaching auf See, Führungskräfte Retreat, wingwave" },
+    coachesImages: { hero: "./catamaran-retreat.webp", sailing: "./sailing-instructor-new.webp", yacht: "./captain-helm_new_resized.webp", logistics: "./marina-docking_resized.webp", onboard1: "./harbor-maneuvers-new.webp", onboard2: "./sailing-instructor-new.webp", onboard3: "./catamaran-retreat.webp" },
     retreatImages: { offer1: "./sailing-instructor-new.webp", offer2: "./harbor-maneuvers-new.webp", offer3: "./catamaran-retreat.webp", trainings: "./catamaran-retreat.webp", concept: "./captain-helm_new_resized.webp", logistics: "./marina-docking_resized.webp", onboard1: "./sailing-instructor-new.webp", onboard2: "./harbor-maneuvers-new.webp", onboard3: "./captain-helm_new_resized.webp" },
     emailSettings: { subjectTemplate: "Platzanfrage für den Kurs am {date}", bodyTemplate: "Guten Tag,\n\nbitte kontaktieren Sie mich bezüglich des Kurses.\n\nMit freundlichen Grüßen" },
   };
@@ -123,7 +124,7 @@ function savePontareaContent(lang: Lang, content: Record<string, any>) {
 // ────────────────────────────────────────────────────────────
 //  Tab definitions
 // ────────────────────────────────────────────────────────────
-type TabId = "nav"|"hero"|"stats"|"courses_captain"|"courses_harbor"|"pricing"|"howitworks"|"schedule"|"skipper"|"retreat_offers"|"retreat_trainings"|"retreat_audience"|"retreat_services"|"retreat_concept"|"retreat_whyyacht"|"retreat_logistics"|"retreat_onboard"|"retreat_safety"|"retreat_cost"|"retreat_form"|"retreat_final"|"retreat_images"|"faq"|"testimonials"|"contact"|"footer"|"instructor"|"location"|"seo"|"emailSettings";
+type TabId = "nav"|"hero"|"stats"|"courses_captain"|"courses_harbor"|"pricing"|"howitworks"|"schedule"|"skipper"|"retreat_offers"|"retreat_trainings"|"retreat_audience"|"retreat_services"|"retreat_concept"|"retreat_whyyacht"|"retreat_logistics"|"retreat_onboard"|"retreat_safety"|"retreat_cost"|"retreat_form"|"retreat_final"|"retreat_images"|"coaches_hero"|"coaches_context"|"coaches_offer"|"coaches_audience"|"coaches_formats"|"coaches_handled"|"coaches_sailing"|"coaches_yacht"|"coaches_process"|"coaches_logistics"|"coaches_onboard"|"coaches_safety"|"coaches_costs"|"coaches_form"|"coaches_final"|"coaches_images"|"faq"|"testimonials"|"contact"|"footer"|"instructor"|"location"|"seo"|"emailSettings";
 
 const TABS: { id: TabId; label: string; source: "translations"|"content" }[] = [
   { id: "nav",            label: "🔗 Navigation",         source: "translations" },
@@ -148,6 +149,22 @@ const TABS: { id: TabId; label: string; source: "translations"|"content" }[] = [
   { id: "retreat_form",     label: "🌊 Retreat: Formular",   source: "translations" },
   { id: "retreat_final",    label: "🌊 Retreat: Abschluss",  source: "translations" },
   { id: "retreat_images",   label: "🖼️ Retreat: Bilder",     source: "content" },
+  { id: "coaches_hero", label: "🎯 Coaches: Hero & Meta", source: "translations" },
+  { id: "coaches_context", label: "🎯 Coaches: Kontext", source: "translations" },
+  { id: "coaches_offer", label: "🎯 Coaches: Angebot", source: "translations" },
+  { id: "coaches_audience", label: "🎯 Coaches: Zielgruppen", source: "translations" },
+  { id: "coaches_formats", label: "🎯 Coaches: Formate", source: "translations" },
+  { id: "coaches_handled", label: "🎯 Coaches: Leistungen", source: "translations" },
+  { id: "coaches_sailing", label: "🎯 Coaches: Segeln (USP)", source: "translations" },
+  { id: "coaches_yacht", label: "🎯 Coaches: Yacht", source: "translations" },
+  { id: "coaches_process", label: "🎯 Coaches: Ablauf", source: "translations" },
+  { id: "coaches_logistics", label: "🎯 Coaches: Logistik", source: "translations" },
+  { id: "coaches_onboard", label: "🎯 Coaches: An Bord", source: "translations" },
+  { id: "coaches_safety", label: "🎯 Coaches: Sicherheit", source: "translations" },
+  { id: "coaches_costs", label: "🎯 Coaches: Kosten", source: "translations" },
+  { id: "coaches_form", label: "🎯 Coaches: Formular", source: "translations" },
+  { id: "coaches_final", label: "🎯 Coaches: Abschluss & Alt-Texte", source: "translations" },
+  { id: "coaches_images", label: "🖼️ Coaches: Bilder", source: "content" },
   { id: "faq",            label: "❓ FAQ",                source: "translations" },
   { id: "testimonials",   label: "⭐ Bewertungen",        source: "translations" },
   { id: "contact",        label: "📞 Kontakt-Sektion",    source: "translations" },
@@ -169,7 +186,7 @@ const TAB_KEYS: Record<TabId, string[]> = {
   schedule: ["schedule.title","schedule.subtitle","schedule.note","schedule.day1","schedule.day1Title","schedule.day1Brief","schedule.day1Detailed","schedule.day2","schedule.day2Title","schedule.day2Brief","schedule.day2Detailed","schedule.day3","schedule.day3Title","schedule.day3Brief","schedule.day3Detailed","schedule.day4","schedule.day4Title","schedule.day4Brief","schedule.day4Detailed","schedule.day5","schedule.day5Title","schedule.day5Brief","schedule.day5Detailed","schedule.day6","schedule.day6Title","schedule.day6Brief","schedule.day6Detailed","schedule.day7","schedule.day7Title","schedule.day7Brief","schedule.day7Detailed","schedule.day8","schedule.day8Title","schedule.day8Brief","schedule.day8Detailed","schedule.noteLabel","schedule.bottomNote","schedule.detailedAgenda"],
   skipper: ["skipper.sectionTag","skipper.title","skipper.subtitle","skipper.includesTitle","skipper.item1Title","skipper.item1Desc","skipper.item2Title","skipper.item2Desc","skipper.item3Title","skipper.item3Desc","skipper.item4Title","skipper.item4Desc","skipper.priceTitle","skipper.price1Label","skipper.price1Desc","skipper.price1Tag","skipper.price2Label","skipper.price2Desc","skipper.price2Tag","skipper.price3Label","skipper.price3Desc","skipper.price3Tag","skipper.priceNote","skipper.ctaButton","skipper.transferNote"],
   retreat_offers: ["retreat.offersTag","retreat.offersTitle","retreat.offersSubtitle","retreat.offer1Title","retreat.offer1Text","retreat.offer1Button","retreat.offer2Title","retreat.offer2Text","retreat.offer2Button","retreat.offer3Title","retreat.offer3Text","retreat.offer3Button"],
-  retreat_trainings: ["retreat.trainingsTag","retreat.trainingsTitle","retreat.trainingsSubtitle","retreat.trainingsText1","retreat.trainingsText2","retreat.trainingsFormatsTitle","retreat.trainingsFormats","retreat.altTrainings"],
+  retreat_trainings: ["retreat.trainingsTag","retreat.trainingsTitle","retreat.trainingsSubtitle","retreat.trainingsText1","retreat.trainingsText2","retreat.trainingsFormatsTitle","retreat.trainingsFormats","retreat.altTrainings","retreat.trainingsCta"],
   retreat_audience: ["retreat.audienceTag","retreat.audienceTitle","retreat.audienceText","retreat.audienceGroups","retreat.audienceOutro"],
   retreat_services: ["retreat.servicesTag","retreat.servicesTitle","retreat.servicesText","retreat.servicesList","retreat.servicesOutro"],
   retreat_concept: ["retreat.conceptTag","retreat.conceptTitle","retreat.conceptText1","retreat.conceptListTitle","retreat.conceptList","retreat.conceptText2","retreat.altConcept"],
@@ -180,6 +197,21 @@ const TAB_KEYS: Record<TabId, string[]> = {
   retreat_cost: ["retreat.costTag","retreat.costTitle","retreat.costText1","retreat.costText2","retreat.costListTitle","retreat.costList","retreat.costButton"],
   retreat_form: ["retreat.formTag","retreat.formTitle","retreat.formText","retreat.formName","retreat.formNamePlaceholder","retreat.formEmail","retreat.formEmailPlaceholder","retreat.formPhone","retreat.formPhonePlaceholder","retreat.formCommLang","retreat.formCommLangDe","retreat.formCommLangRu","retreat.formCommLangEn","retreat.formType","retreat.formTypePlaceholder","retreat.formTypeCaptain","retreat.formTypeHarbor","retreat.formTypeRetreat","retreat.formTypeTeam","retreat.formTypeLeadership","retreat.formTypeYachtEvent","retreat.formTypeOther","retreat.formPeriod","retreat.formPeriodPlaceholder","retreat.formParticipants","retreat.formParticipantsPlaceholder","retreat.formTopic","retreat.formTopicPlaceholder","retreat.formMessage","retreat.formMessagePlaceholder","retreat.formOptionalTitle","retreat.formDuration","retreat.formBerths","retreat.formBoatType","retreat.formPorts","retreat.formComfort","retreat.formBudget","retreat.formPrivacy","retreat.formSubmit","retreat.formSuccess","retreat.formError","retreat.formRequired","retreat.formPrivacyRequired"],
   retreat_final: ["retreat.finalTitle","retreat.finalText","retreat.finalButton","retreat.finalSecondary"],
+  coaches_hero: ["coaches.hero.tag","coaches.hero.title","coaches.hero.subtitle","coaches.hero.text","coaches.hero.ctaPrimary","coaches.hero.ctaSecondary","coaches.meta.title","coaches.meta.description","coaches.nav.back","coaches.nav.anchorOffer","coaches.nav.anchorSailing","coaches.nav.anchorProcess","coaches.nav.anchorCosts","coaches.nav.anchorForm","coaches.whatsapp.label","coaches.whatsapp.prefill"],
+  coaches_context: ["coaches.context.tag","coaches.context.title","coaches.context.text1","coaches.context.text2","coaches.context.points"],
+  coaches_offer: ["coaches.offer.tag","coaches.offer.title","coaches.offer.subtitle","coaches.offer.card1Title","coaches.offer.card1Desc","coaches.offer.card2Title","coaches.offer.card2Desc","coaches.offer.card3Title","coaches.offer.card3Desc"],
+  coaches_audience: ["coaches.audience.tag","coaches.audience.title","coaches.audience.text","coaches.audience.groups"],
+  coaches_formats: ["coaches.formats.tag","coaches.formats.title","coaches.formats.text","coaches.formats.list","coaches.formats.note"],
+  coaches_handled: ["coaches.handled.tag","coaches.handled.title","coaches.handled.text","coaches.handled.list","coaches.handled.note"],
+  coaches_sailing: ["coaches.sailing.tag","coaches.sailing.title","coaches.sailing.subtitle","coaches.sailing.text1","coaches.sailing.text2","coaches.sailing.list","coaches.sailing.note"],
+  coaches_yacht: ["coaches.yacht.tag","coaches.yacht.title","coaches.yacht.text","coaches.yacht.points"],
+  coaches_process: ["coaches.process.tag","coaches.process.title","coaches.process.text","coaches.process.step1Title","coaches.process.step1Desc","coaches.process.step2Title","coaches.process.step2Desc","coaches.process.step3Title","coaches.process.step3Desc","coaches.process.step4Title","coaches.process.step4Desc","coaches.process.step5Title","coaches.process.step5Desc"],
+  coaches_logistics: ["coaches.logistics.tag","coaches.logistics.title","coaches.logistics.text1","coaches.logistics.text2","coaches.logistics.list"],
+  coaches_onboard: ["coaches.onboard.tag","coaches.onboard.title","coaches.onboard.text","coaches.onboard.card1Title","coaches.onboard.card1Desc","coaches.onboard.card2Title","coaches.onboard.card2Desc","coaches.onboard.card3Title","coaches.onboard.card3Desc","coaches.onboard.card4Title","coaches.onboard.card4Desc"],
+  coaches_safety: ["coaches.safety.tag","coaches.safety.title","coaches.safety.text","coaches.safety.list","coaches.safety.note"],
+  coaches_costs: ["coaches.costs.tag","coaches.costs.title","coaches.costs.text","coaches.costs.includesTitle","coaches.costs.includes","coaches.costs.note","coaches.costs.button"],
+  coaches_form: ["coaches.form.tag","coaches.form.title","coaches.form.text","coaches.form.name","coaches.form.org","coaches.form.email","coaches.form.phone","coaches.form.role","coaches.form.roleOptions","coaches.form.formatLabel","coaches.form.formatPlaceholder","coaches.form.groupSize","coaches.form.groupSizeOptions","coaches.form.period","coaches.form.periodPlaceholder","coaches.form.boatLabel","coaches.form.boatOptions","coaches.form.sailingLabel","coaches.form.sailingOptions","coaches.form.message","coaches.form.messagePlaceholder","coaches.form.privacy","coaches.form.submit","coaches.form.sending","coaches.form.successTitle","coaches.form.successText","coaches.form.errorText","coaches.form.required","coaches.form.whatsappAlt"],
+  coaches_final: ["coaches.final.title","coaches.final.text","coaches.final.button","coaches.final.secondary","coaches.alt.hero","coaches.alt.sailing","coaches.alt.yacht","coaches.alt.logistics","coaches.alt.onboard1","coaches.alt.onboard2","coaches.alt.onboard3"],
   faq: ["faq.title","faq.subtitle","faq.moreQuestions","faq.contactText","faq.callButton","faq.emailButton","faq.q1","faq.a1","faq.q2","faq.a2","faq.q3","faq.a3","faq.q4","faq.a4","faq.q5","faq.a5","faq.q6","faq.a6","faq.q7","faq.a7","faq.q8","faq.a8","faq.q9","faq.a9","faq.q10","faq.a10"],
   testimonials: ["testimonials.title","testimonials.trainerTitle","testimonials.pontareaTitle","testimonials.viewAll","testimonials.review1","testimonials.review2","testimonials.review3","testimonials.review4","testimonials.review5","testimonials.review6"],
   contact: ["contact.title","contact.subtitle","contact.name","contact.phone","contact.email","contact.date","contact.course","contact.message","contact.submit","contact.success","contact.countryCode","contact.phoneNumber","contact.phonePlaceholder","contact.namePlaceholder","contact.emailPlaceholder","contact.datePlaceholder","contact.coursePlaceholder","contact.messagePlaceholder","contact.dateHafenApril","contact.dateKapitanMai","contact.dateHafenMai","contact.dateKapitanSept","contact.dateFlexibel","contact.courseKapitan","contact.courseHafen","contact.courseUnsure","contact.whatsappTitle","contact.whatsappDesc","contact.whatsappButton","contact.phoneTitle","contact.phoneDesc","contact.emailTitle","contact.emailDesc","contact.emailButton","contact.trustTitle","contact.trustDesc","contact.bogdanTitle","contact.bogdanDesc","contact.coursesOnSite","contact.bogdanOnSite"],
@@ -202,7 +234,17 @@ const CONTENT_FIELDS: Record<TabId, { field: string; label: string; multiline?: 
     {field:"retreatImages.onboard2",label:"An Bord Galerie Bild 2"},
     {field:"retreatImages.onboard3",label:"An Bord Galerie Bild 3"},
   ],
+  coaches_images: [
+    {field:"coachesImages.hero",label:"Hero Bild (Katamaran)"},
+    {field:"coachesImages.sailing",label:"Segeln-Sektion Bild"},
+    {field:"coachesImages.yacht",label:"Yacht-Sektion Bild"},
+    {field:"coachesImages.logistics",label:"Logistik-Sektion Bild"},
+    {field:"coachesImages.onboard1",label:"An Bord Galerie Bild 1"},
+    {field:"coachesImages.onboard2",label:"An Bord Galerie Bild 2"},
+    {field:"coachesImages.onboard3",label:"An Bord Galerie Bild 3"},
+  ],
   nav:[],hero:[],stats:[],courses_captain:[],courses_harbor:[],pricing:[],howitworks:[],schedule:[],skipper:[],faq:[],testimonials:[],contact:[],footer:[],
+  coaches_hero:[],coaches_context:[],coaches_offer:[],coaches_audience:[],coaches_formats:[],coaches_handled:[],coaches_sailing:[],coaches_yacht:[],coaches_process:[],coaches_logistics:[],coaches_onboard:[],coaches_safety:[],coaches_costs:[],coaches_form:[],coaches_final:[],
   retreat_offers:[],retreat_trainings:[],retreat_audience:[],retreat_services:[],retreat_concept:[],retreat_whyyacht:[],retreat_logistics:[],retreat_onboard:[],retreat_safety:[],retreat_cost:[],retreat_form:[],retreat_final:[],
 };
 
@@ -222,7 +264,7 @@ function getLabel(key: string): string {
 }
 
 function isLongText(key: string): boolean {
-  const longKeys = ["description","brief","detailed","text","para","intro","outro","body","bio","quote","note","a1","a2","a3","a4","a5","a6","a7","a8","a9","a10","bodyTemplate","statsDescription","day1Brief","day2Brief","day3Brief","day4Brief","day5Brief","day6Brief","day7Brief","day8Brief","day1Detailed","day2Detailed","day3Detailed","day4Detailed","day5Detailed","day6Detailed","day7Detailed","day8Detailed","trustDesc","bogdanDesc","emailDesc","phoneDesc","whatsappDesc","fearsDialogIntro","fearsDialogAfterText","kautionImportant","transparencyNote","transparencyLabel","summaryOptions"];
+  const longKeys = ["description","brief","detailed","text","para","intro","outro","body","bio","quote","note","a1","a2","a3","a4","a5","a6","a7","a8","a9","a10","bodyTemplate","statsDescription","day1Brief","day2Brief","day3Brief","day4Brief","day5Brief","day6Brief","day7Brief","day8Brief","day1Detailed","day2Detailed","day3Detailed","day4Detailed","day5Detailed","day6Detailed","day7Detailed","day8Detailed","trustDesc","bogdanDesc","emailDesc","phoneDesc","whatsappDesc","fearsDialogIntro","fearsDialogAfterText","kautionImportant","transparencyNote","transparencyLabel","summaryOptions","desc","list","points","groups","includes","options","formats","questions","schedule","advantages"];
   const last = key.split(".").pop() || "";
   return longKeys.some(lk => last.toLowerCase().includes(lk.toLowerCase()));
 }

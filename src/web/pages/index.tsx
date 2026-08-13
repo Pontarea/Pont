@@ -992,6 +992,11 @@ const RetreatTrainingsSection = () => {
               <div key={i} className="flex items-start gap-3"><span className="text-sky-500 mt-1">⛵</span><span className="text-gray-700">{f}</span></div>
             ))}
           </div>
+          <div className="mt-8 text-center">
+            <Link href="/coaches" className="inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all">
+              {t('retreat.trainingsCta')} <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

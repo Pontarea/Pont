@@ -633,6 +633,183 @@
     "altOnboard1": "Segelyacht in Kroatien bei Sonnenuntergang",
     "altOnboard2": "Katamaran in einer Bucht vor Zadar",
     "altOnboard3": "Leben an Bord einer Yacht",
-    "altConcept": "Teambuilding an Bord einer Segelyacht"
+    "altConcept": "Teambuilding an Bord einer Segelyacht",
+    "trainingsCta": "Alle Details für Coaches & Unternehmen"
+  },
+  "coaches": {
+    "hero": {
+      "tag": "Für Coaches, Trainer & Unternehmen",
+      "title": "Ihre Inhalte. Unsere Yacht. Eine Woche, die bleibt.",
+      "subtitle": "Pontarea stellt Segelyacht, Katamaran und komplette Organisation für Ihr Format in Kroatien.",
+      "text": "Sie arbeiten mit Menschen und Gruppen. Wir schaffen den Rahmen dafür: schwimmend, abgeschirmt vom Alltag, professionell geführt. Sie bringen Ihr Programm mit — Route, Skipper, Technik und Sicherheit übernehmen wir.",
+      "ctaPrimary": "Unverbindlich anfragen",
+      "ctaSecondary": "Wie es funktioniert"
+    },
+    "context": {
+      "tag": "Ausgangslage",
+      "title": "Der Raum entscheidet mit, wie tief eine Gruppe arbeitet",
+      "text1": "Seminarräume sind austauschbar. Teilnehmer bleiben erreichbar, gedanklich halb im Büro, abends allein im Hotelzimmer. Der Wechsel vom Alltag in den Prozess passiert langsam — oder gar nicht.",
+      "text2": "An Bord ist das anders. Die Gruppe ist eine Woche zusammen, ohne Ausweichmöglichkeit und ohne Ablenkung. Wer segelt, ist beteiligt. Genau das beschleunigt jeden Gruppenprozess.",
+      "points": "Abstand vom Alltag statt Erreichbarkeit rund um die Uhr\nEine Gruppe, ein Boot, kein Rückzug in Einzelzimmer\nGemeinsames Erleben als natürlicher Türöffner\nKlare Tagesstruktur durch Segeln, Etappen und Ankerplätze\nNatur, Weite und Ruhe als Gegengewicht zur Intensität"
+    },
+    "offer": {
+      "tag": "Das Angebot",
+      "title": "Wir stellen die Plattform — Sie gestalten den Inhalt",
+      "subtitle": "Segelyacht oder Katamaran in Kroatien, mit Skipper und vollständiger Organisation.",
+      "card1Title": "Yacht oder Katamaran",
+      "card1Desc": "Passend zur Gruppengröße: Monohull für kleine Gruppen, Katamaran für mehr Platz, Stabilität und größere Gemeinschaftsflächen. Auch mehrere Boote im Verband möglich.",
+      "card2Title": "Skipper und Führung an Bord",
+      "card2Desc": "Erfahrener Skipper übernimmt Navigation, Manöver und Sicherheit. Sie sind zu keinem Zeitpunkt für die Schiffsführung verantwortlich.",
+      "card3Title": "Komplette Organisation",
+      "card3Desc": "Route, Liegeplätze, Verpflegungskonzept, Transfers, Sicherheitsunterlagen und Vorbereitung der Gruppe — koordiniert aus einer Hand."
+    },
+    "audience": {
+      "tag": "Zielgruppen",
+      "title": "Für wen wir arbeiten",
+      "text": "Pontarea arbeitet mit Fachleuten, die eigene Gruppen und eigene Inhalte mitbringen — und mit Unternehmen, die ihre Teams außerhalb gewohnter Strukturen entwickeln wollen.",
+      "groups": "Coaches und systemische Berater\nTrainerinnen und Trainer\nPsychologen und Berater\nMentoren und Supervisoren\nSpeaker, Stimm- und Rhetoriktrainer\nGesundheits- und Präventionsfachkräfte\nYoga- und Achtsamkeitslehrer\nUnternehmen und Personalentwicklung\nFührungskräfte und Gründerteams\nVeranstalter von Retreats und Erlebnisformaten"
+    },
+    "formats": {
+      "tag": "Formate",
+      "title": "Welche Programme an Bord funktionieren",
+      "text": "Die inhaltliche Ausrichtung bestimmen Sie. Aus unserer Erfahrung tragen diese Formate den Rahmen einer Woche auf See besonders gut.",
+      "list": "Führungskräfteentwicklung\nTeambuilding und Teamentwicklung\nStrategie- und Unternehmerretreats\nPersönlichkeitsentwicklung\nCoaching-Intensivwochen\nRhetorik, Stimme und Präsentation\nwingwave®-Coaching\nGesundheits- und Präventionsformate\nYoga, Atem und Achtsamkeit\nProgramme für junge Professionals\nFrauen- oder Männerprogramme nach Ihrem Konzept\nAusbildungs- und Weiterbildungsmodule",
+      "note": "Ihre Methodik bleibt Ihre. Wir bewerten Inhalte nicht und mischen uns nicht in Ihre Arbeit ein."
+    },
+    "handled": {
+      "tag": "Organisation",
+      "title": "Was wir übernehmen — und was bei Ihnen bleibt",
+      "text": "Ein Format auf See scheitert selten am Inhalt, sondern an der Logistik. Deshalb übernehmen wir alles, was nicht Ihre Kernaufgabe ist.",
+      "list": "Auswahl und Buchung von Yacht oder Katamaran\nErfahrener Skipper für die gesamte Woche\nRoutenplanung nach Ihrem Programmablauf\nLiegeplätze, Hafengebühren und Ankerplätze\nVerpflegungskonzept und Einkauf an Bord\nTransfers ab Flughafen Zadar oder Split\nSicherheitseinweisung und Notfallplanung\nRisikoanalyse und Versicherungsnachweise\nVorbereitung der Teilnehmer vor Anreise\nAnsprechpartner während der gesamten Reise",
+      "note": "Bei Ihnen bleibt genau eines: Ihr Programm."
+    },
+    "sailing": {
+      "tag": "Unser Alleinstellungsmerkmal",
+      "title": "Segeln als Bonus für Ihre Gruppe",
+      "subtitle": "Pontarea ist keine Charteragentur, sondern eine Ausbildungsplattform mit eigenem Instruktor.",
+      "text1": "Charteranbieter vermieten ein Boot. Wir bringen zusätzlich das mit, was sie nicht haben: eine eigene Segelschule und einen eigenen Instruktor an Bord. Ihre Teilnehmer lernen während der Woche echtes Segeln — als Bonus zu Ihrem Programm, ohne dass Sie dafür etwas tun müssen.",
+      "text2": "Sie müssen selbst nicht segeln können und keine Segelkenntnisse vermitteln. Der Instruktor übernimmt diesen Teil vollständig — abgestimmt auf Ihren Zeitplan, nie in Konkurrenz zu Ihren Einheiten.",
+      "list": "Praktische Segeleinweisung für alle Teilnehmer\nManöver, Steuern, Knoten und Bootskunde\nOptional als strukturierter Kursblock buchbar\nAuf Wunsch mit Ausbildungsnachweis für die Teilnehmer\nZeitlich passend zu Ihren Programmeinheiten geplant\nAuch komplett abwählbar, wenn Ihr Format keinen Raum lässt",
+      "note": "Für die Gruppe entsteht ein sichtbares zweites Ergebnis: Sie fahren mit Ihrem Prozess nach Hause — und mit einer neuen Fähigkeit."
+    },
+    "yacht": {
+      "tag": "Der Lernraum",
+      "title": "Warum eine Yacht als Format funktioniert",
+      "text": "Eine Yacht ist kein Hotel mit Wasserblick. Sie erzeugt Bedingungen, die sich in einem Seminarraum nicht herstellen lassen.",
+      "points": "Begrenzter Raum erzeugt echte Nähe und schnelle Gruppenbildung\nSegeln verlangt Kooperation — Verhalten wird sichtbar statt beschrieben\nKlare Rollen und Aufgaben an Bord ohne künstliche Übungen\nWechsel zwischen Aktivität und Ruhe im Tagesrhythmus\nAnkerbuchten als geschützte Räume für konzentrierte Arbeit\nEin gemeinsames Erlebnis, das nach der Woche verbindet"
+    },
+    "process": {
+      "tag": "Ablauf",
+      "title": "In fünf Schritten zu Ihrem Format auf See",
+      "text": "Planbar und ohne Überraschungen. Sie wissen vor der Zusage, was Sie bekommen und was es kostet.",
+      "step1Title": "Anfrage und Erstgespräch",
+      "step1Desc": "Sie schildern Format, Gruppengröße und Zeitraum. Wir klären in einem Gespräch, ob und wie es an Bord funktioniert.",
+      "step2Title": "Konzept und Angebot",
+      "step2Desc": "Sie erhalten einen Vorschlag mit Boot, Route, Ablaufrahmen und einem individuellen Angebot auf Anfrage.",
+      "step3Title": "Abstimmung des Programms",
+      "step3Desc": "Wir legen Ihre Einheiten, Segelzeiten und optionale Segeleinweisung so übereinander, dass sich nichts blockiert.",
+      "step4Title": "Vorbereitung der Gruppe",
+      "step4Desc": "Teilnehmer erhalten Anreiseinfos, Packliste, Sicherheitshinweise und Antworten auf typische Fragen vor dem Start.",
+      "step5Title": "Die Woche an Bord",
+      "step5Desc": "Skipper und Instruktor sind durchgehend an Bord. Sie arbeiten mit Ihrer Gruppe, wir halten den Rahmen."
+    },
+    "logistics": {
+      "tag": "Logistik",
+      "title": "Startpunkt Marina Dalmacija bei Zadar",
+      "text1": "Basis ist die Marina Dalmacija in Sukošan bei Zadar, einer der größten Marinas an der kroatischen Adria. Von dort liegen geschützte Buchten, Inseln und kurze Etappen in erreichbarer Nähe — ideal für Programme, die verlässliche Tagesabläufe brauchen.",
+      "text2": "Anreise über den Flughafen Zadar, alternativ Split. Transfers organisieren wir auf Wunsch für die gesamte Gruppe.",
+      "list": "Basis: Marina Dalmacija, Sukošan bei Zadar\nAnreise: Flughafen Zadar oder Split\nKurze, planbare Etappen zwischen Buchten und Inseln\nGeschützte Reviere mit verlässlichen Bedingungen\nSaison in der Regel von Mai bis Oktober\nGruppentransfer auf Wunsch organisiert"
+    },
+    "onboard": {
+      "tag": "An Bord",
+      "title": "Wie eine Woche an Bord aussieht",
+      "text": "Der Tag hat eine natürliche Struktur: Morgen an Bord, Etappe unter Segeln, Ankerplatz oder Hafen am Abend. Ihre Einheiten legen wir in die ruhigen Fenster.",
+      "card1Title": "Unterbringung",
+      "card1Desc": "Kabinen je nach Boot, meist Doppelbelegung. Katamarane bieten mehr Privatsphäre und größere Gemeinschaftsbereiche.",
+      "card2Title": "Verpflegung",
+      "card2Desc": "Frühstück und Mittag meist an Bord, Abendessen je nach Route in Hafenrestaurants. Ernährungswünsche berücksichtigen wir im Einkauf.",
+      "card3Title": "Arbeitsflächen",
+      "card3Desc": "Salon, Cockpit und Vordeck als wechselnde Settings. Für Gruppenarbeit, Einzelgespräche oder Übungen an Deck.",
+      "card4Title": "Rhythmus",
+      "card4Desc": "Segelzeiten, Badestopps und Programmeinheiten wechseln sich ab. Intensive Arbeit bleibt so über eine ganze Woche tragbar."
+    },
+    "safety": {
+      "tag": "Sicherheit",
+      "title": "Verantwortung liegt bei uns",
+      "text": "Für die Schiffsführung sind Sie zu keinem Zeitpunkt verantwortlich. Das übernimmt der Skipper — mit Lizenz, Erfahrung im Revier und klaren Abläufen für den Notfall.",
+      "list": "Lizenzierter Skipper mit Revierkenntnis\nSicherheitseinweisung für alle Teilnehmer am ersten Tag\nRettungswesten und geprüfte Sicherheitsausrüstung an Bord\nTägliche Wetterprüfung, Route wird bei Bedarf angepasst\nVollständig versicherte Charterboote\nNotfall- und Kommunikationsplan vor Reisebeginn\nFeste Ansprechperson an Land während der gesamten Woche",
+      "note": "Bei ungünstiger Wetterlage hat Sicherheit Vorrang vor Routenplanung. Programmzeiten verschieben wir dann gemeinsam."
+    },
+    "costs": {
+      "tag": "Kosten",
+      "title": "Individuelles Angebot auf Anfrage",
+      "text": "Die Kosten hängen von Boot, Gruppengröße, Saison, Routenlänge und Umfang der Zusatzleistungen ab. Pauschalpreise wären hier unseriös — Sie erhalten eine durchgerechnete Kalkulation für Ihr Format.",
+      "includesTitle": "In der Kalkulation enthalten",
+      "includes": "Yacht oder Katamaran für den gebuchten Zeitraum\nSkipper für die gesamte Woche\nOptionale Segeleinweisung durch unseren Instruktor\nRoutenplanung, Liegeplätze und Hafengebühren\nVerpflegungskonzept und Einkauf an Bord\nOrganisation, Vorbereitung und Betreuung\nSicherheitsausrüstung und Versicherungen\nTransfers auf Wunsch",
+      "note": "Ihr Honorar gegenüber Ihren Teilnehmern gestalten Sie frei. Wir treten nicht zwischen Sie und Ihre Gruppe.",
+      "button": "Angebot anfordern"
+    },
+    "form": {
+      "tag": "Anfrage",
+      "title": "Format unverbindlich anfragen",
+      "text": "Beschreiben Sie kurz Ihr Vorhaben. Wir antworten in der Regel innerhalb von zwei Werktagen mit einer ersten Einschätzung.",
+      "name": "Name",
+      "org": "Unternehmen oder Praxis (optional)",
+      "email": "E-Mail",
+      "phone": "Telefon (optional)",
+      "role": "Ihre Rolle",
+      "roleOptions": "Coach\nTrainer\nBerater oder Psychologe\nUnternehmen oder Personalentwicklung\nFührungskraft\nSonstiges",
+      "formatLabel": "Art des Formats",
+      "formatPlaceholder": "z. B. Führungskräfte-Retreat, Teamentwicklung, Coaching-Woche",
+      "groupSize": "Gruppengröße",
+      "groupSizeOptions": "bis 6 Personen\n7–10 Personen\n11–16 Personen\nmehr als 16 Personen\nnoch offen",
+      "period": "Gewünschter Zeitraum",
+      "periodPlaceholder": "z. B. Juni 2027 oder Kalenderwoche 24",
+      "boatLabel": "Bootstyp",
+      "boatOptions": "Segelyacht\nKatamaran\nmehrere Boote im Verband\nEmpfehlung von Pontarea",
+      "sailingLabel": "Soll ein Segelausbildungsblock für Ihre Gruppe enthalten sein?",
+      "sailingOptions": "Ja, als Bonus für die Teilnehmer\nJa, als strukturierter Kursblock mit Nachweis\nNein, nur Segeln als Rahmen\nBitte beraten Sie mich",
+      "message": "Ihr Vorhaben",
+      "messagePlaceholder": "Ziel des Formats, Zielgruppe, besondere Anforderungen",
+      "privacy": "Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage zu.",
+      "submit": "Anfrage senden",
+      "sending": "Wird gesendet …",
+      "successTitle": "Anfrage eingegangen",
+      "successText": "Danke. Wir melden uns in der Regel innerhalb von zwei Werktagen bei Ihnen.",
+      "errorText": "Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie an info@pontarea.de.",
+      "required": "Bitte füllen Sie die Pflichtfelder aus.",
+      "whatsappAlt": "Oder direkt per WhatsApp schreiben"
+    },
+    "final": {
+      "title": "Sie haben ein Format. Wir haben das Boot.",
+      "text": "Wenn Sie prüfen wollen, ob Ihr Programm auf See funktioniert, klären wir das in einem Gespräch — ohne Verpflichtung.",
+      "button": "Gespräch anfragen",
+      "secondary": "Oder direkt schreiben: info@pontarea.de"
+    },
+    "meta": {
+      "title": "Yachten für Coaches, Trainer & Unternehmen | Pontarea",
+      "description": "Segelyacht oder Katamaran in Kroatien für Ihr Coaching-, Trainings- oder Teambuilding-Format. Mit Skipper, eigenem Segelinstruktor und kompletter Organisation. Individuelles Angebot auf Anfrage."
+    },
+    "nav": {
+      "back": "Zur Startseite",
+      "anchorOffer": "Angebot",
+      "anchorSailing": "Segeln als Bonus",
+      "anchorProcess": "Ablauf",
+      "anchorCosts": "Kosten",
+      "anchorForm": "Anfrage"
+    },
+    "whatsapp": {
+      "label": "WhatsApp",
+      "prefill": "Guten Tag, ich interessiere mich für ein Format auf See für meine Gruppe."
+    },
+    "alt": {
+      "hero": "Katamaran unter Segeln in Kroatien für Coaching-Formate",
+      "sailing": "Segelinstruktor erklärt ein Manöver an Bord",
+      "yacht": "Segelyacht am Ankerplatz in einer Bucht bei Zadar",
+      "logistics": "Marina Dalmacija bei Zadar in Kroatien",
+      "onboard1": "Salon einer Yacht als Arbeitsraum für Gruppen",
+      "onboard2": "Gruppe im Cockpit einer Segelyacht",
+      "onboard3": "Ankerbucht in Kroatien mit Katamaran"
+    }
   }
 }

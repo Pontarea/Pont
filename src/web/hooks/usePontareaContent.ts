@@ -1,5 +1,27 @@
 import { useLanguage } from '../contexts/LanguageContext';
 
+/**
+ * Bildpfade root-relativ machen ("./bild.webp" -> "/bild.webp").
+ * Notwendig, weil relative Pfade auf verschachtelten Routen
+ * (z. B. /ru/coaches) sonst auf /ru/bild.webp zeigen und 404 liefern.
+ */
+function toRootPaths<T>(value: T): T {
+  if (typeof value === 'string') {
+    return (value.startsWith('./') ? '/' + value.slice(2) : value) as unknown as T;
+  }
+  if (Array.isArray(value)) {
+    return value.map((v) => toRootPaths(v)) as unknown as T;
+  }
+  if (value && typeof value === 'object') {
+    const out: Record<string, any> = {};
+    for (const k in value as Record<string, any>) {
+      out[k] = toRootPaths((value as Record<string, any>)[k]);
+    }
+    return out as unknown as T;
+  }
+  return value;
+}
+
 export const usePontareaContent = () => {
   const { language, t } = useLanguage();
   
@@ -122,6 +144,15 @@ export const usePontareaContent = () => {
       description: "Sportbootführerschein B in 7 Tagen – Intensivkurse in Marina Dalmacija, Kroatien. Dazu Yachtcharter, Retreats & Events auf See. Max. 6 Teilnehmer, Theorie, Praxis & Prüfung.",
       keywords: "Segelkurs, Sportbootführerschein, Yachtcharter Kroatien, Yacht mieten, Retreat auf See, Events auf See, Marina Dalmacija, Skipper Lizenz"
     },
+    coachesImages: {
+      hero: "./catamaran-retreat.webp",
+      sailing: "./sailing-instructor-new.webp",
+      yacht: "./captain-helm_new_resized.webp",
+      logistics: "./marina-docking_resized.webp",
+      onboard1: "./harbor-maneuvers-new.webp",
+      onboard2: "./sailing-instructor-new.webp",
+      onboard3: "./catamaran-retreat.webp"
+    },
     retreatImages: {
       offer1: "./sailing-instructor-new.webp",
       offer2: "./harbor-maneuvers-new.webp",
@@ -195,13 +226,13 @@ export const usePontareaContent = () => {
     const saved = localStorage.getItem(`pontareaContent_${language}`);
     if (saved) {
       try {
-        return { ...defaultContent, ...JSON.parse(saved) };
+        return toRootPaths({ ...defaultContent, ...JSON.parse(saved) });
       } catch (e) {
         console.error("Error parsing saved content:", e);
-        return defaultContent;
+        return toRootPaths(defaultContent);
       }
     }
   }
   
-  return defaultContent;
+  return toRootPaths(defaultContent);
 };

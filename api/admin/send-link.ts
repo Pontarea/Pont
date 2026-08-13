@@ -40,7 +40,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const loginUrl = `${siteUrl}/admin/login?token=${encodeURIComponent(token)}`;
 
   if (resendKey) {
-    await fetch('https://api.resend.com/emails', {
+    const mail = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { Authorization: `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -77,6 +77,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           </div>`,
       }),
     });
+
+    // Antwort MUSS geprueft werden: sonst meldet der Admin "Link gesendet",
+    // obwohl Resend abgelehnt hat (z. B. Domain nicht verifiziert) und
+    // niemals eine Mail ankommt. Fehler wird sichtbar gemacht, nicht verschluckt.
+    if (!mail.ok) {
+      const detail = await mail.text();
+      console.error('[admin/send-link] resend failed', mail.status, detail);
+      let hint = 'E-Mail konnte nicht versendet werden.';
+      if (mail.status === 403 && detail.includes('not verified')) {
+        hint = 'Absender-Domain ist bei Resend nicht verifiziert. Bitte pontarea.de unter resend.com/domains verifizieren.';
+      }
+      return res.status(502).json({ error: hint });
+    }
     return res.status(200).json({ success: true });
   }
 
