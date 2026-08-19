@@ -10,6 +10,11 @@ function rateLimit(ip: string): boolean {
   e.count++; return true;
 }
 
+// Nur diese Adressen dürfen einen Admin-Link empfangen. Bewusst hart im Code:
+// so kann ein fremder Aufrufer den Link nicht an sich selbst schicken lassen.
+const ALLOWED_RECIPIENTS = ['info@pontarea.de', 'zambrovskij@gmail.com'] as const;
+const DEFAULT_RECIPIENT = 'zambrovskij@gmail.com';
+
 async function hmac(payload: string, secret: string): Promise<string> {
   const enc = new TextEncoder();
   const key = await crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
@@ -31,6 +36,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   if (!secret) return res.status(500).json({ error: 'ADMIN_JWT_SECRET nicht konfiguriert.' });
 
+  // Empfänger prüfen: leer → Default, sonst muss er in der Allowlist stehen.
+  const rawEmail = typeof req.body?.email === 'string' ? req.body.email.trim().toLowerCase() : '';
+  const recipient = rawEmail || DEFAULT_RECIPIENT;
+  if (!ALLOWED_RECIPIENTS.includes(recipient as typeof ALLOWED_RECIPIENTS[number])) {
+    console.warn('[admin/send-link] rejected recipient', recipient, 'ip', ip);
+    return res.status(403).json({ error: 'Diese E-Mail-Adresse ist nicht für den Admin-Zugang freigegeben.' });
+  }
+
   // Строим подписанный токен: expiry + nonce → hmac
   const expiry = Date.now() + 15 * 60 * 1000; // 15 минут
   const nonce = crypto.randomUUID();
@@ -45,7 +58,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       headers: { Authorization: `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         from: 'Pontarea Admin <noreply@pontarea.de>',
-        to: ['zambrovskij@gmail.com'],
+        to: [recipient],
         subject: '🔐 Pontarea Admin – Einmal-Zugangslink',
         html: `
           <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:480px;margin:0 auto;padding:40px 20px;background:#f0f7ff;">
@@ -90,9 +103,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
       return res.status(502).json({ error: hint });
     }
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ success: true, sentTo: recipient });
   }
 
   // Dev-режим: нет Resend → вернуть ссылку напрямую
-  return res.status(200).json({ success: true, devLoginUrl: loginUrl });
+  return res.status(200).json({ success: true, sentTo: recipient, devLoginUrl: loginUrl });
 }
