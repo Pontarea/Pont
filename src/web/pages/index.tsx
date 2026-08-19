@@ -410,13 +410,14 @@ const CoursesSection = () => {
 const InclusiveSection = () => {
   const { t } = useLanguage();
   const included = [t('pricing.item1'), t('pricing.item2'), t('pricing.item3'), t('pricing.item4'), t('pricing.item5'), t('pricing.item6'), t('pricing.item7'), t('pricing.item8')];
-  const bordkasseItems = [t('pricing.bordkasse1'), t('pricing.bordkasse2'), t('pricing.bordkasse3')];
+  // Eine einzige Liste: keine Position wird doppelt genannt.
   const additionalCosts = [
     { name: t('pricing.cost1Name'), price: t('pricing.cost1Price') },
     { name: t('pricing.cost2Name'), price: t('pricing.cost2Price') },
     { name: t('pricing.cost3Name'), price: t('pricing.cost3Price') },
     { name: t('pricing.cost4Name'), price: t('pricing.cost4Price') },
     { name: t('pricing.cost5Name'), price: t('pricing.cost5Price') },
+    { name: t('pricing.cost6Name'), price: t('pricing.cost6Price') },
   ];
 
   return (
@@ -450,42 +451,23 @@ const InclusiveSection = () => {
                 <span className="text-sky-600 text-xl transition-transform group-open:rotate-180">⌄</span>
               </summary>
               <div className="pt-6">
-            <div className="mb-6 bg-gradient-to-br from-orange-50 to-amber-50 border-2 border-orange-300 rounded-lg p-6">
-              <h4 className="text-xl font-bold text-gray-900 mb-3">{t('pricing.bordkasseTitle')} <span className="text-orange-600">{t('pricing.bordkasseAmount')}</span></h4>
-              <p className="text-gray-700 mb-4 text-sm">{t('pricing.bordkasseDesc')}</p>
-              <ul className="space-y-2">
-                {bordkasseItems.map((item, idx) => <li key={idx} className="flex gap-3 text-gray-700 text-sm"><span className="text-orange-500 font-bold">→</span><span>{item}</span></li>)}
-              </ul>
-            </div>
-            <div className="overflow-x-auto mb-6">
-              <table className="w-full text-sm">
-                <thead><tr className="border-b-2 border-sky-300 bg-sky-50"><th className="text-left py-2 font-semibold text-gray-800">{t('pricing.otherCosts')}</th><th className="text-right py-2 font-semibold text-gray-800">{t('pricing.perPerson')}</th></tr></thead>
-                <tbody className="divide-y divide-sky-100">
-                  {additionalCosts.map((cost, idx) => <tr key={idx} className="hover:bg-sky-50 transition-colors"><td className="py-3 text-gray-700">{cost.name}</td><td className="text-right text-gray-700 font-semibold">{cost.price}</td></tr>)}
-                </tbody>
-              </table>
-            </div>
-            <div className="bg-sky-50 border border-sky-300 rounded-lg p-6 mb-6">
-              <h4 className="text-lg font-bold text-gray-900 mb-4">{t('pricing.kautionTitle')}</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                <div className="bg-white border border-sky-200 rounded p-4">
-                  <p className="text-xs text-gray-600 uppercase font-semibold mb-1">{t('pricing.kautionWithout')}</p>
-                  <p className="text-2xl font-bold text-gray-900">{t('pricing.kautionWithoutAmount')}</p>
-                  <p className="text-sm text-gray-600 mt-2">{t('pricing.kautionWithoutDesc')}<br/><span className="font-semibold">{t('pricing.kautionWithoutPerPerson')}</span></p>
-                  <p className="text-xs text-gray-500 mt-2">{t('pricing.kautionWithoutNote')}</p>
+                <p className="text-sm text-gray-700 leading-relaxed mb-5">{t('pricing.costsIntro')}</p>
+                <div className="overflow-x-auto mb-5">
+                  <table className="w-full text-sm">
+                    <thead><tr className="border-b-2 border-sky-300 bg-sky-50"><th className="text-left py-2 font-semibold text-gray-800">{t('pricing.otherCosts')}</th><th className="text-right py-2 font-semibold text-gray-800">{t('pricing.perPerson')}</th></tr></thead>
+                    <tbody className="divide-y divide-sky-100">
+                      {additionalCosts.map((cost, idx) => <tr key={idx} className="hover:bg-sky-50 transition-colors"><td className="py-3 text-gray-700">{cost.name}</td><td className="text-right text-gray-700 font-semibold whitespace-nowrap pl-4">{cost.price}</td></tr>)}
+                    </tbody>
+                    <tfoot>
+                      <tr className="border-t-2 border-sky-300 bg-sky-50">
+                        <td className="py-3 font-bold text-gray-900">{t('pricing.summaryTotalLabel')}</td>
+                        <td className="py-3 text-right font-bold text-sky-700">{t('pricing.costHeadlineAmount')}</td>
+                      </tr>
+                    </tfoot>
+                  </table>
                 </div>
-                <div className="bg-amber-50 border-2 border-amber-400 rounded p-4">
-                  <p className="text-xs text-gray-600 uppercase font-semibold mb-1">{t('pricing.kautionWith')}</p>
-                  <p className="text-2xl font-bold text-amber-600">{t('pricing.kautionWithAmount')}</p>
-                  <p className="text-sm text-gray-700 mt-2">{t('pricing.kautionWithDesc')}<br/><span className="font-semibold text-amber-700">{t('pricing.kautionWithTotal')}</span></p>
-                  <p className="text-xs text-amber-700 mt-2 font-semibold">{t('pricing.kautionWithNote')}</p>
-                </div>
-              </div>
-              <p className="text-xs text-gray-600 bg-white p-3 rounded border border-gray-200"><strong>Wichtig:</strong> {t('pricing.kautionImportant')}</p>
-            </div>
-            <div className="bg-blue-50 border border-blue-300 rounded-lg p-4">
-              <p className="text-gray-800 text-sm"><strong>{t('pricing.summaryTitle')}</strong><br/>• {t('pricing.summary1')}<br/>• {t('pricing.summary2')}<br/>• {t('pricing.summary3')}<br/><span className="font-semibold">{t('pricing.summaryTotal')}</span> {t('pricing.summaryOptions')}</p>
-            </div>
+                <p className="text-sm text-gray-700 mb-4">{t('pricing.summaryTotal')}</p>
+                <p className="text-xs text-gray-600 bg-sky-50 border border-sky-200 p-4 rounded-lg leading-relaxed">{t('pricing.kautionNote')}</p>
               </div>
             </details>
           </div>

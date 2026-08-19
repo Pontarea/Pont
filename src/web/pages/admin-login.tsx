@@ -6,10 +6,14 @@ import { useState, useEffect } from "react";
 
 type State = "idle" | "sending" | "sent" | "verifying" | "error";
 
+// Muss mit ALLOWED_RECIPIENTS in api/admin/send-link.ts übereinstimmen.
+const RECIPIENTS = ["zambrovskij@gmail.com", "info@pontarea.de"] as const;
+
 const AdminLogin = ({ onSuccess }: { onSuccess: (token: string) => void }) => {
   const [state, setState] = useState<State>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [devUrl, setDevUrl] = useState("");
+  const [email, setEmail] = useState<string>(RECIPIENTS[0]);
 
   // — Если в URL уже есть ?token= — сразу верифицируем
   useEffect(() => {
@@ -63,6 +67,7 @@ const AdminLogin = ({ onSuccess }: { onSuccess: (token: string) => void }) => {
       const res = await fetch("/api/admin/send-link", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
       });
       const data = await res.json() as any;
       if (data.success) {
@@ -105,7 +110,7 @@ const AdminLogin = ({ onSuccess }: { onSuccess: (token: string) => void }) => {
             <h2 className="text-2xl font-semibold text-gray-800">E-Mail verschickt!</h2>
             <p className="text-gray-500 mt-3 text-base leading-relaxed">
               Schau in dein Postfach:<br />
-              <strong className="text-gray-700">zambrovskij@gmail.com</strong>
+              <strong className="text-gray-700">{email}</strong>
             </p>
             <p className="text-gray-400 text-sm mt-2">
               Der Link ist 15 Minuten gültig.
@@ -156,6 +161,23 @@ const AdminLogin = ({ onSuccess }: { onSuccess: (token: string) => void }) => {
           </div>
         )}
 
+        <div className="text-left">
+          <label htmlFor="admin-recipient" className="block text-sm font-medium text-gray-600 mb-2">
+            Link senden an
+          </label>
+          <select
+            id="admin-recipient"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            disabled={state === "sending"}
+            className="w-full h-14 px-4 bg-white border border-gray-200 rounded-2xl text-gray-700 text-base focus:outline-none focus:ring-2 focus:ring-[#d4a853]/40 focus:border-[#d4a853] disabled:opacity-60 transition-all"
+          >
+            {RECIPIENTS.map((r) => (
+              <option key={r} value={r}>{r}</option>
+            ))}
+          </select>
+        </div>
+
         <button
           onClick={handleSendLink}
           disabled={state === "sending"}
@@ -169,7 +191,7 @@ const AdminLogin = ({ onSuccess }: { onSuccess: (token: string) => void }) => {
         </button>
 
         <p className="text-center text-gray-400 text-sm">
-          Der Link wird an <strong className="text-gray-600">zambrovskij@gmail.com</strong> geschickt.
+          Der Link wird an <strong className="text-gray-600">{email}</strong> geschickt und ist 15 Minuten gültig.
         </p>
       </div>
     </Screen>
