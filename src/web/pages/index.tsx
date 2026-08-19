@@ -435,6 +435,21 @@ const InclusiveSection = () => {
           </div>
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2"><span className="text-orange-500">⚠</span> {t('pricing.additional')}</h3>
+
+            {/* Kompakte Kernaussage: nur EINE Zahl. Details bewusst eingeklappt,
+                damit die Zahlenwand niemanden abschreckt. */}
+            <div className="mb-6 bg-white border-2 border-sky-300 rounded-xl p-6 shadow-sm">
+              <p className="text-sm text-gray-600 uppercase font-semibold tracking-wide mb-1">{t('pricing.costHeadlineLabel')}</p>
+              <p className="text-4xl sm:text-5xl font-bold text-sky-600 mb-3">{t('pricing.costHeadlineAmount')}</p>
+              <p className="text-sm text-gray-600 leading-relaxed">{t('pricing.costHeadlineNote')}</p>
+            </div>
+
+            <details className="group mb-6">
+              <summary className="cursor-pointer list-none flex items-center justify-between gap-3 bg-sky-50 hover:bg-sky-100 transition-colors border border-sky-300 rounded-lg px-5 py-4 font-semibold text-gray-800">
+                <span>{t('pricing.costDetailsToggle')}</span>
+                <span className="text-sky-600 text-xl transition-transform group-open:rotate-180">⌄</span>
+              </summary>
+              <div className="pt-6">
             <div className="mb-6 bg-gradient-to-br from-orange-50 to-amber-50 border-2 border-orange-300 rounded-lg p-6">
               <h4 className="text-xl font-bold text-gray-900 mb-3">{t('pricing.bordkasseTitle')} <span className="text-orange-600">{t('pricing.bordkasseAmount')}</span></h4>
               <p className="text-gray-700 mb-4 text-sm">{t('pricing.bordkasseDesc')}</p>
@@ -471,6 +486,8 @@ const InclusiveSection = () => {
             <div className="bg-blue-50 border border-blue-300 rounded-lg p-4">
               <p className="text-gray-800 text-sm"><strong>{t('pricing.summaryTitle')}</strong><br/>• {t('pricing.summary1')}<br/>• {t('pricing.summary2')}<br/>• {t('pricing.summary3')}<br/><span className="font-semibold">{t('pricing.summaryTotal')}</span> {t('pricing.summaryOptions')}</p>
             </div>
+              </div>
+            </details>
           </div>
         </div>
         <div className="mt-12 bg-green-50 border border-green-300 rounded-lg p-6 text-center">
@@ -789,10 +806,10 @@ const BookingFormSection = () => {
                   <Select value={formData.preferredDate} onValueChange={(val) => setFormData(prev => ({ ...prev, preferredDate: val }))}>
                     <SelectTrigger className="border-sky-300"><SelectValue placeholder={t('contact.datePlaceholder')} /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="hafenmanoever-april">{t('contact.dateHafenApril')}</SelectItem>
-                      <SelectItem value="kapitaenkurs-mai">{t('contact.dateKapitanMai')}</SelectItem>
-                      <SelectItem value="hafenmanoever-mai">{t('contact.dateHafenMai')}</SelectItem>
-                      <SelectItem value="kapitaenkurs-sept">{t('contact.dateKapitanSept')}</SelectItem>
+                      <SelectItem value="kapitaenkurs-2026-09-19">{t('contact.dateKapitan1')}</SelectItem>
+                      <SelectItem value="hafenmanoever-2026-10-03">{t('contact.dateHafen1')}</SelectItem>
+                      <SelectItem value="kapitaenkurs-2027-05-08">{t('contact.dateKapitan2')}</SelectItem>
+                      <SelectItem value="hafenmanoever-2027-05-16">{t('contact.dateHafen2')}</SelectItem>
                       <SelectItem value="flexibel">{t('contact.dateFlexibel')}</SelectItem>
                     </SelectContent>
                   </Select>
