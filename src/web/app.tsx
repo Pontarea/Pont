@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { Redirect, Route, Switch } from "wouter";
 import Index from "./pages/index";
 import CoachesPage from "./pages/coaches";
-import AdminPanel from "./pages/admin-extended";
 import AdminFullPage from "./pages/admin-full";
 import AdminResetPassword from "./pages/admin-reset-password";
 import ImpressumPage from "./pages/impressum";
@@ -55,7 +54,12 @@ function App() {
 				<Route path="/admin" component={AdminFullPage} />
 				<Route path="/admin/login" component={AdminFullPage} />
 				<Route path="/admin/reset-password" component={AdminResetPassword} />
-				<Route path="/admin-old" component={AdminPanel} />
+				{/* /admin-old entfernt: Legacy-Panel ohne Server-Anbindung
+				    (speicherte nur in localStorage) und mit hartkodiertem
+				    Passwort im öffentlichen Bundle. Ersetzt durch /admin. */}
+				<Route path="/admin-old">
+					<Redirect to="/admin" />
+				</Route>
 				<Route path="/impressum" component={ImpressumPage} />
 				<Route path="/agb" component={AGBPageStyled} />
 				<Route path="/datenschutz" component={DatenschutzPageStyled} />
