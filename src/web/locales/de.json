@@ -262,7 +262,7 @@
     "q4": "Was brauche ich für die Prüfung?",
     "a4": "Pass/ID, Schwimmnachweis (nicht zwingend, aber empfohlen). Physische & mentale Eignung zum Segelführerschein sind erforderlich. Wenn du größere medizinische Einschränkungen hast, kontaktiere uns vorab.",
     "q5": "Fallen Zusatzkosten an?",
-    "a5": "In beiden Kursen sind Unterricht, Unterkunft auf der Yacht, Materialien & Prüfung/Zertifikat enthalten. Verpflegung (ca. €200–250), ggf. Einzelzimmer-Upgrade und Anreise fallen extra an – siehe 'Zusatzkosten'.",
+    "a5": "In beiden Kursen sind Unterricht, Unterkunft auf der Yacht, Materialien und Prüfungsvorbereitung enthalten. Zusätzlich kommen ca. €350 pro Person hinzu: Verpflegung €100 pro Woche, Touristen-Taxe €10 pro Woche, Treibstoff €25, Liegeplätze außerhalb der Heimatmarina, Kautionsversicherung ca. €42 und – falls extern – die Prüfungsgebühr €150. Ohne externe Prüfungsgebühr sind es ca. €200. Die Anreise zur Marina kommt separat hinzu. Details siehe 'Zusatzkosten'.",
     "q6": "Was, wenn ich Anfänger bin – kann ich mithalten?",
     "a6": "Ja! Der Kurs ist für Anfänger konzipiert. Bogdan passt das Tempo an. Bei Einzelpersonen wird der Unterricht individualisiert. Wichtig: Schwimmen können (oder zumindest wassersicher sein) wird empfohlen.",
     "q7": "Wie viele Menschen sind auf dem Boot?",
@@ -411,19 +411,22 @@
     "section4Items": [
       "Kursgebühren: Kapitänkurs €1.500, Hafenmanöver €1.600 (inkl. Unterkunft auf der Yacht, Bettwäsche, Trainer, Liegeplatz mit Strom/Wasser, Treibstoff, Endreinigung, Prüfungsvorbereitung)",
       "Zahlung: 50% Anzahlung bei Buchung, 50% spätestens 2 Wochen vor Kursbeginn",
-      "Bortkasse: €135 pro Person (gemeinsame Kasse für Verpflegung, Taxen, Treibstoff)",
-      "Kaution: €3.000 pro Gruppe (rückzahlbar) oder Kautionsversicherung €250",
+      "Bordkasse: ca. €200 pro Person (gemeinsame Kasse für Verpflegung, Touristen-Taxe, Treibstoff, Liegeplätze außerhalb der Heimatmarina und Kautionsversicherung – der Anteil des Trainers ist inbegriffen)",
+      "Prüfungsgebühr: €150 je Teilnehmer, der die externe Prüfung ablegt – diese Gebühr ist nicht Teil der Bordkasse",
+      "Kautionsversicherung: €250 pro Yacht, aufgeteilt auf alle Teilnehmer (bei 6 Personen ca. €42 pro Person) – wird bei jedem Kurs abgeschlossen; eine Barkaution wird nicht hinterlegt",
       "Alle Preise sind in Euro und inklusive gesetzlicher Steuern"
     ],
     "section5Title": "5. Zusatzkosten",
     "section5Icon": "🏷️",
     "section5Intro": "Folgende Kosten sind NICHT in der Kursgebühr enthalten:",
     "section5Items": [
-      "Verpflegung auf dem Boot (ca. €100 pro Person/Woche)",
+      "Verpflegung an Bord, inkl. Anteil des Trainers (ca. €100 pro Person/Woche)",
       "Touristen-Taxe (ca. €10 pro Person/Woche)",
-      "Prüfungsgebühren (falls extern, €150)",
-      "Anreise zur Marina Dalmacija, Sukošan, Kroatien",
-      "Getränke über die Bortkasse hinaus"
+      "Treibstoff (ca. €25 pro Person)",
+      "Liegeplätze außerhalb der Heimatmarina (anteilig, pro Nacht)",
+      "Kautionsversicherung (€250 pro Yacht, ca. €42 pro Person)",
+      "Prüfungsgebühr, falls extern (€150 je Prüfungsteilnehmer)",
+      "Anreise zur Marina Dalmacija, Sukošan, Kroatien"
     ],
     "section6Title": "6. Stornierung und Rücktritt",
     "section6Icon": "❌",
@@ -436,13 +439,13 @@
     "section7Title": "7. Wetter und Verschiebungen",
     "section7Icon": "⛅",
     "section7Text": "Bei ungünstigen Wetterbedingungen kann Pontarea Trainingstage verschieben oder modifizieren. Der Kurs wird jedoch vollständig durchgeführt. Theoretischer Unterricht findet wetterunabhängig statt. Verschiebungen werden koordiniert, ohne dass zusätzliche Kosten entstehen.",
-    "section8Title": "8. Kaution",
+    "section8Title": "8. Kautionsversicherung",
     "section8Icon": "🔐",
     "section8Items": [
-      "Kaution: €3.000 pro Gruppe (bei 6 Personen ca. €500 pro Person)",
-      "Die Kaution wird in gleichen Teilen von allen Teilnehmern getragen",
-      "Vollständige Rückgabe bei keinen Schäden an der Yacht",
-      "Alternative: Kautionsversicherung €250 (ca. €42 pro Person) – Bei Schäden nur 5% oder min. €150 Selbstbeteiligung"
+      "Für jeden Kurs schließen wir eine Kautionsversicherung ab: €250 pro Yacht",
+      "Die Prämie wird in gleichen Teilen von allen Teilnehmern getragen (bei 6 Personen ca. €42 pro Person)",
+      "Eine Barkaution muss die Gruppe nicht hinterlegen; es wird kein Kautionsbetrag auf einer Kreditkarte blockiert",
+      "Im Schadensfall trägt die Gruppe maximal 5 % des Schadens, mindestens jedoch €150"
     ],
     "section9Title": "9. Haftung und Versicherung",
     "section9Icon": "⚖️",
