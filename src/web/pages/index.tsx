@@ -288,7 +288,20 @@ const CoursesSection = () => {
   const content = usePontareaContent();
   const courseImgs = content.courseImages || {};
   const [selectedCourse, setSelectedCourse] = useState<number | null>(null);
+  const [highlightOna, setHighlightOna] = useState(false);
   const scrollToSection = (href: string) => document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+
+  // Kurzlink /ona (auch /ru/ona, /de/ona): direkt zur Karte
+  // "Sie legt selbst an" scrollen und sie kurz hervorheben.
+  useEffect(() => {
+    if (!/^\/(de\/|ru\/)?ona\/?$/.test(window.location.pathname)) return;
+    const timer = window.setTimeout(() => {
+      document.getElementById("kurs-ona")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      setHighlightOna(true);
+      window.setTimeout(() => setHighlightOna(false), 2600);
+    }, 400);
+    return () => window.clearTimeout(timer);
+  }, []);
   const goToForm = (date?: string, pkg?: string) => {
     if (date || pkg) window.dispatchEvent(new CustomEvent("pontarea:preselect", { detail: { date, pkg } }));
     scrollToSection("#kontakt");
@@ -313,6 +326,7 @@ const CoursesSection = () => {
       licenseNote: t('courses.womenSolo.licenseNote'),
       learnTitle: t('courses.womenSolo.learnTitle'),
       learnContent: [t('courses.womenSolo.learn1'), t('courses.womenSolo.learn2'), t('courses.womenSolo.learn3'), t('courses.womenSolo.learn4'), t('courses.womenSolo.learn5'), t('courses.womenSolo.learn6'), t('courses.womenSolo.learn7'), t('courses.womenSolo.learn8'), t('courses.womenSolo.learn9'), t('courses.womenSolo.learn10'), t('courses.womenSolo.learn11'), t('courses.womenSolo.learn12')],
+      anchor: "kurs-ona",
       preselectDate: "frauenkurs-2026-10-03", preselectPackage: "frauenkurs",
     },
     {
@@ -339,7 +353,7 @@ const CoursesSection = () => {
         </div>
         <div className="grid lg:grid-cols-2 gap-8">
           {courses.map((course) => (
-            <div key={course.id} className="group bg-white/80 backdrop-blur-xl border-2 border-sky-100 rounded-3xl overflow-hidden hover:border-sky-300 transition-all duration-500 shadow-lg hover:shadow-2xl relative">
+            <div key={course.id} id={course.anchor} className={`group bg-white/80 backdrop-blur-xl border-2 rounded-3xl overflow-hidden transition-all duration-500 shadow-lg hover:shadow-2xl relative scroll-mt-28 ${course.anchor === "kurs-ona" && highlightOna ? "border-rose-400 ring-4 ring-rose-300/50 shadow-2xl" : "border-sky-100 hover:border-sky-300"}`}>
               {course.badge && <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">{course.badge}</div>}
               <div className="relative h-64 overflow-hidden cursor-pointer" onClick={() => setSelectedCourse(course.id)}>
                 <img src={course.image} alt={course.imageAlt || course.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
