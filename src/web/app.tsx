@@ -41,15 +41,22 @@ function App() {
 				<Route path="/" component={Index} />
 				<Route path="/coaches" component={CoachesPage} />
 
+				{/* Kurzlink zum Frauenkurs: /ona (sprachneutral),
+				    /ru/ona und /de/ona erzwingen die Sprache. */}
+				<Route path="/ona" component={Index} />
+				<Route path="/ona/" component={Index} />
+
 				{/* Russisch */}
 				<Route path="/ru" component={IndexRU} />
 				<Route path="/ru/" component={IndexRU} />
 				<Route path="/ru/coaches" component={CoachesRU} />
+				<Route path="/ru/ona" component={IndexRU} />
 
 				{/* Deutsch (explizit) */}
 				<Route path="/de" component={IndexDE} />
 				<Route path="/de/" component={IndexDE} />
 				<Route path="/de/coaches" component={CoachesDE} />
+				<Route path="/de/ona" component={IndexDE} />
 
 				<Route path="/admin" component={AdminFullPage} />
 				<Route path="/admin/login" component={AdminFullPage} />
