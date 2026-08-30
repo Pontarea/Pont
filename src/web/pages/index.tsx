@@ -285,8 +285,14 @@ const ReviewsSection = () => {
 // ============================================
 const CoursesSection = () => {
   const { t } = useLanguage();
+  const content = usePontareaContent();
+  const courseImgs = content.courseImages || {};
   const [selectedCourse, setSelectedCourse] = useState<number | null>(null);
   const scrollToSection = (href: string) => document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  const goToForm = (date?: string, pkg?: string) => {
+    if (date || pkg) window.dispatchEvent(new CustomEvent("pontarea:preselect", { detail: { date, pkg } }));
+    scrollToSection("#kontakt");
+  };
 
   const courses = [
     {
@@ -296,15 +302,28 @@ const CoursesSection = () => {
       gradient: "from-sky-400 to-blue-500", image: "/captain-helm_new_resized.webp",
       learnTitle: t('courses.captain.learnTitle'),
       learnContent: [t('courses.captain.learn1'), t('courses.captain.learn2'), t('courses.captain.learn3'), t('courses.captain.learn4'), t('courses.captain.learn5'), t('courses.captain.learn6'), t('courses.captain.learn7'), t('courses.captain.learn8')],
+      preselectDate: "kapitaenkurs-2026-09-19", preselectPackage: "kapitaenkurs",
+    },
+    {
+      id: 3, title: t('courses.womenSolo.title'), subtitle: t('courses.womenSolo.subtitle'), price: t('courses.womenSolo.price'), dates: t('courses.womenSolo.dates').split(',').map(s => s.trim()), duration: t('courses.womenSolo.duration'),
+      description: t('courses.womenSolo.description'),
+      features: [t('courses.womenSolo.feature1'), t('courses.womenSolo.feature2'), t('courses.womenSolo.feature3'), t('courses.womenSolo.feature4'), t('courses.womenSolo.feature5'), t('courses.womenSolo.feature6')],
+      gradient: "from-rose-400 to-pink-500", image: courseImgs.womenSoloImage || "/harbor-maneuvers-new.webp", imageAlt: t('courses.womenSolo.imageAlt'), badge: t('courses.womenSolo.badge'),
+      capacityNote: t('courses.womenSolo.capacityNote'),
+      licenseNote: t('courses.womenSolo.licenseNote'),
+      learnTitle: t('courses.womenSolo.learnTitle'),
+      learnContent: [t('courses.womenSolo.learn1'), t('courses.womenSolo.learn2'), t('courses.womenSolo.learn3'), t('courses.womenSolo.learn4'), t('courses.womenSolo.learn5'), t('courses.womenSolo.learn6'), t('courses.womenSolo.learn7'), t('courses.womenSolo.learn8'), t('courses.womenSolo.learn9'), t('courses.womenSolo.learn10'), t('courses.womenSolo.learn11'), t('courses.womenSolo.learn12')],
+      preselectDate: "frauenkurs-2026-10-03", preselectPackage: "frauenkurs",
     },
     {
       id: 2, title: t('courses.harbor.title'), subtitle: t('courses.harbor.subtitle'), price: t('courses.harbor.price'), dates: t('courses.harbor.dates').split(',').map(s => s.trim()), duration: t('courses.harbor.duration'),
       description: t('courses.harbor.description'),
       features: [t('courses.harbor.feature1'), t('courses.harbor.feature2'), t('courses.harbor.feature3'), t('courses.harbor.feature4'), t('courses.harbor.feature5'), t('courses.harbor.feature6')],
-      gradient: "from-teal-400 to-cyan-500", image: "/marina-docking_resized.webp", unique: true,
+      gradient: "from-teal-400 to-cyan-500", image: "/marina-docking_resized.webp", badge: t('courses.harbor.uniqueBadge'),
       learnTitle: t('courses.harbor.learnTitle'),
       learnContent: [t('courses.harbor.learn1'), t('courses.harbor.learn2'), t('courses.harbor.learn3'), t('courses.harbor.learn4'), t('courses.harbor.learn5'), t('courses.harbor.learn6'), t('courses.harbor.learn7'), t('courses.harbor.learn8')],
       fearsBefore: [t('courses.harbor.fear1'), t('courses.harbor.fear2'), t('courses.harbor.fear3'), t('courses.harbor.fear4'), t('courses.harbor.fear5'), t('courses.harbor.fear6'), t('courses.harbor.fear7')],
+      preselectDate: "hafenmanoever-2027-05-16", preselectPackage: "hafenmanoever",
     }
   ];
 
@@ -321,9 +340,9 @@ const CoursesSection = () => {
         <div className="grid lg:grid-cols-2 gap-8">
           {courses.map((course) => (
             <div key={course.id} className="group bg-white/80 backdrop-blur-xl border-2 border-sky-100 rounded-3xl overflow-hidden hover:border-sky-300 transition-all duration-500 shadow-lg hover:shadow-2xl relative">
-              {course.unique && <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">{t('courses.harbor.uniqueBadge')}</div>}
+              {course.badge && <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">{course.badge}</div>}
               <div className="relative h-64 overflow-hidden cursor-pointer" onClick={() => setSelectedCourse(course.id)}>
-                <img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={course.image} alt={course.imageAlt || course.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-sky-900/30 to-transparent" />
                 <div className={`absolute bottom-4 left-4 bg-gradient-to-r ${course.gradient} text-white font-bold px-5 py-3 rounded-2xl shadow-lg`}>{course.price}</div>
               </div>
@@ -331,6 +350,7 @@ const CoursesSection = () => {
                 <div className="flex items-center gap-2 mb-4">
                   <span className={`w-3 h-3 rounded-full bg-gradient-to-r ${course.gradient}`} />
                   <span className="text-gray-500 text-sm font-medium">{course.duration}</span>
+                  {course.capacityNote && <><span className="text-gray-300">•</span><span className="text-gray-500 text-sm font-medium">{course.capacityNote}</span></>}
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">{course.title}</h3>
                 <p className="text-sky-600 text-sm font-semibold mb-4">{course.subtitle}</p>
@@ -349,7 +369,12 @@ const CoursesSection = () => {
                     </div>
                   ))}
                 </div>
-                <Button onClick={() => scrollToSection("#kontakt")} className={`w-full h-12 bg-gradient-to-r ${course.gradient} text-white font-semibold rounded-lg hover:shadow-lg transition-all`}>{t('courses.bookNow')}</Button>
+                {course.licenseNote && (
+                  <div className="mb-6 bg-amber-50 border border-amber-200 rounded-lg p-4">
+                    <p className="text-gray-700 text-sm leading-relaxed">{course.licenseNote}</p>
+                  </div>
+                )}
+                <Button onClick={() => goToForm(course.preselectDate, course.preselectPackage)} className={`w-full h-12 bg-gradient-to-r ${course.gradient} text-white font-semibold rounded-lg hover:shadow-lg transition-all`}>{t('courses.bookNow')}</Button>
               </div>
             </div>
           ))}
@@ -391,8 +416,13 @@ const CoursesSection = () => {
                       <p className="text-gray-600 mt-4 text-sm"><strong>{t('courses.fearsDialogAfter')}</strong> {t('courses.fearsDialogAfterText')}</p>
                     </div>
                   )}
+                  {course.licenseNote && (
+                    <div className="border-t pt-6">
+                      <p className="text-gray-700 text-sm leading-relaxed bg-amber-50 border border-amber-200 rounded-lg p-4">{course.licenseNote}</p>
+                    </div>
+                  )}
                   <div className="border-t pt-6">
-                    <Button onClick={() => { setSelectedCourse(null); scrollToSection("#kontakt"); }} className={`w-full h-12 bg-gradient-to-r ${course.gradient} text-white font-semibold rounded-lg hover:shadow-lg transition-all`}>{t('courses.bookNow')}</Button>
+                    <Button onClick={() => { setSelectedCourse(null); goToForm(course.preselectDate, course.preselectPackage); }} className={`w-full h-12 bg-gradient-to-r ${course.gradient} text-white font-semibold rounded-lg hover:shadow-lg transition-all`}>{t('courses.bookNow')}</Button>
                   </div>
                 </div>
               </>);
@@ -752,6 +782,15 @@ const BookingFormSection = () => {
   const [formData, setFormData] = useState({ firstName: "", countryCode: "+49", phone: "", email: "", preferredDate: "", package: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const d = (e as CustomEvent<{ date?: string; pkg?: string }>).detail || {};
+      setFormData((prev) => ({ ...prev, preferredDate: d.date || prev.preferredDate, package: d.pkg || prev.package }));
+    };
+    window.addEventListener("pontarea:preselect", handler);
+    return () => window.removeEventListener("pontarea:preselect", handler);
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); console.log("Form submitted:", formData); setSubmitted(true); setTimeout(() => setSubmitted(false), 3000); };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => { const { name, value } = e.target; setFormData((prev) => ({ ...prev, [name]: value })); };
 
@@ -789,7 +828,7 @@ const BookingFormSection = () => {
                     <SelectTrigger className="border-sky-300"><SelectValue placeholder={t('contact.datePlaceholder')} /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="kapitaenkurs-2026-09-19">{t('contact.dateKapitan1')}</SelectItem>
-                      <SelectItem value="hafenmanoever-2026-10-03">{t('contact.dateHafen1')}</SelectItem>
+                      <SelectItem value="frauenkurs-2026-10-03">{t('contact.dateHafen1')}</SelectItem>
                       <SelectItem value="kapitaenkurs-2027-05-08">{t('contact.dateKapitan2')}</SelectItem>
                       <SelectItem value="hafenmanoever-2027-05-16">{t('contact.dateHafen2')}</SelectItem>
                       <SelectItem value="flexibel">{t('contact.dateFlexibel')}</SelectItem>
@@ -802,6 +841,7 @@ const BookingFormSection = () => {
                     <SelectTrigger className="border-sky-300"><SelectValue placeholder={t('contact.coursePlaceholder')} /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="kapitaenkurs">{t('contact.courseKapitan')}</SelectItem>
+                      <SelectItem value="frauenkurs">{t('contact.courseFrauen')}</SelectItem>
                       <SelectItem value="hafenmanoever">{t('contact.courseHafen')}</SelectItem>
                       <SelectItem value="unsure">{t('contact.courseUnsure')}</SelectItem>
                     </SelectContent>

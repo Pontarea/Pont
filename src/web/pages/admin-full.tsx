@@ -124,13 +124,14 @@ function savePontareaContent(lang: Lang, content: Record<string, any>) {
 // ────────────────────────────────────────────────────────────
 //  Tab definitions
 // ────────────────────────────────────────────────────────────
-type TabId = "nav"|"hero"|"stats"|"courses_captain"|"courses_harbor"|"pricing"|"howitworks"|"schedule"|"skipper"|"retreat_offers"|"retreat_trainings"|"retreat_audience"|"retreat_services"|"retreat_concept"|"retreat_whyyacht"|"retreat_logistics"|"retreat_onboard"|"retreat_safety"|"retreat_cost"|"retreat_form"|"retreat_final"|"retreat_images"|"coaches_hero"|"coaches_context"|"coaches_offer"|"coaches_audience"|"coaches_formats"|"coaches_handled"|"coaches_sailing"|"coaches_yacht"|"coaches_process"|"coaches_logistics"|"coaches_onboard"|"coaches_safety"|"coaches_costs"|"coaches_form"|"coaches_final"|"coaches_images"|"faq"|"testimonials"|"contact"|"footer"|"instructor"|"location"|"seo"|"emailSettings";
+type TabId = "nav"|"hero"|"stats"|"courses_captain"|"courses_womensolo"|"courses_harbor"|"pricing"|"howitworks"|"schedule"|"skipper"|"retreat_offers"|"retreat_trainings"|"retreat_audience"|"retreat_services"|"retreat_concept"|"retreat_whyyacht"|"retreat_logistics"|"retreat_onboard"|"retreat_safety"|"retreat_cost"|"retreat_form"|"retreat_final"|"retreat_images"|"coaches_hero"|"coaches_context"|"coaches_offer"|"coaches_audience"|"coaches_formats"|"coaches_handled"|"coaches_sailing"|"coaches_yacht"|"coaches_process"|"coaches_logistics"|"coaches_onboard"|"coaches_safety"|"coaches_costs"|"coaches_form"|"coaches_final"|"coaches_images"|"faq"|"testimonials"|"contact"|"footer"|"instructor"|"location"|"seo"|"emailSettings";
 
 const TABS: { id: TabId; label: string; source: "translations"|"content" }[] = [
   { id: "nav",            label: "🔗 Navigation",         source: "translations" },
   { id: "hero",           label: "🏠 Hero",               source: "translations" },
   { id: "stats",          label: "📊 Statistiken",        source: "translations" },
   { id: "courses_captain",label: "⛵ Kurs: Kapitän",      source: "translations" },
+  { id: "courses_womensolo",label: "🎯 Kurs: Sie legt selbst an", source: "translations" },
   { id: "courses_harbor", label: "⚓ Kurs: Hafen",        source: "translations" },
   { id: "pricing",        label: "💰 Preise",             source: "translations" },
   { id: "howitworks",     label: "🔄 Wie funktioniert's", source: "translations" },
@@ -180,6 +181,7 @@ const TAB_KEYS: Record<TabId, string[]> = {
   hero: ["hero.badge","hero.title","hero.subtitle","hero.statsTitle","hero.statsDescription","hero.location","hero.group","hero.format","hero.goal","hero.schedule","hero.discover","hero.signupNow","hero.answerTime"],
   stats: ["stats.title","stats.subtitle","stats.students","stats.studentsLabel","stats.studentsNote","stats.experience","stats.experienceLabel","stats.successRate","stats.successRateLabel","stats.groupSize","stats.groupSizeLabel"],
   courses_captain: ["courses.sectionTitle","courses.title","courses.subtitle","courses.location","courses.captain.title","courses.captain.subtitle","courses.captain.price","courses.captain.dates","courses.captain.duration","courses.captain.description","courses.captain.feature1","courses.captain.feature2","courses.captain.feature3","courses.captain.feature4","courses.captain.feature5","courses.captain.feature6","courses.captain.learnTitle","courses.captain.learn1","courses.captain.learn2","courses.captain.learn3","courses.captain.learn4","courses.captain.learn5","courses.captain.learn6","courses.captain.learn7","courses.captain.learn8","courses.learnMore","courses.bookNow","courses.nextDates"],
+  courses_womensolo: ["courses.womenSolo.title","courses.womenSolo.subtitle","courses.womenSolo.price","courses.womenSolo.dates","courses.womenSolo.duration","courses.womenSolo.badge","courses.womenSolo.capacityNote","courses.womenSolo.imageAlt","courses.womenSolo.description","courses.womenSolo.licenseNote","courses.womenSolo.feature1","courses.womenSolo.feature2","courses.womenSolo.feature3","courses.womenSolo.feature4","courses.womenSolo.feature5","courses.womenSolo.feature6","courses.womenSolo.learnTitle","courses.womenSolo.learn1","courses.womenSolo.learn2","courses.womenSolo.learn3","courses.womenSolo.learn4","courses.womenSolo.learn5","courses.womenSolo.learn6","courses.womenSolo.learn7","courses.womenSolo.learn8","courses.womenSolo.learn9","courses.womenSolo.learn10","courses.womenSolo.learn11","courses.womenSolo.learn12","courses.womenSolo.centralMessage","courses.womenSolo.positioning","courses.womenSolo.focus","courses.womenSolo.courseCharacter","courses.womenSolo.limitationNote","courses.womenSolo.ctaPrimary","courses.womenSolo.ctaSecondary","courses.location"],
   courses_harbor: ["courses.harbor.title","courses.harbor.subtitle","courses.harbor.price","courses.harbor.dates","courses.harbor.duration","courses.harbor.description","courses.harbor.uniqueBadge","courses.harbor.feature1","courses.harbor.feature2","courses.harbor.feature3","courses.harbor.feature4","courses.harbor.feature5","courses.harbor.feature6","courses.harbor.learnTitle","courses.harbor.learn1","courses.harbor.learn2","courses.harbor.learn3","courses.harbor.learn4","courses.harbor.learn5","courses.harbor.learn6","courses.harbor.learn7","courses.harbor.learn8","courses.harbor.fearsTitle","courses.harbor.fear1","courses.harbor.fear2","courses.harbor.fear3","courses.harbor.fear4","courses.harbor.fear5","courses.harbor.fear6","courses.harbor.fear7","courses.fearsDialogTitle","courses.fearsDialogIntro","courses.fearsDialogAfter","courses.fearsDialogAfterText"],
   pricing: ["pricing.title","pricing.subtitle","pricing.included","pricing.additional","pricing.costHeadlineLabel","pricing.costHeadlineAmount","pricing.costHeadlineNote","pricing.costDetailsToggle","pricing.item1","pricing.item2","pricing.item3","pricing.item4","pricing.item5","pricing.item6","pricing.item7","pricing.item8","pricing.costsIntro","pricing.otherCosts","pricing.perPerson","pricing.cost1Name","pricing.cost1Price","pricing.cost2Name","pricing.cost2Price","pricing.cost3Name","pricing.cost3Price","pricing.cost4Name","pricing.cost4Price","pricing.cost5Name","pricing.cost5Price","pricing.cost6Name","pricing.cost6Price","pricing.kautionNote","pricing.summaryTotalLabel","pricing.summaryTotal","pricing.transparencyLabel","pricing.transparencyNote"],
   howitworks: ["howItWorks.title","howItWorks.subtitle","howItWorks.step","howItWorks.step1Title","howItWorks.step1Desc","howItWorks.step1Icon","howItWorks.step2Title","howItWorks.step2Desc","howItWorks.step2Icon","howItWorks.step3Title","howItWorks.step3Desc","howItWorks.step3Icon"],
@@ -243,6 +245,9 @@ const CONTENT_FIELDS: Record<TabId, { field: string; label: string; multiline?: 
     {field:"coachesImages.onboard2",label:"An Bord Galerie Bild 2"},
     {field:"coachesImages.onboard3",label:"An Bord Galerie Bild 3"},
   ],
+  courses_womensolo: [
+    {field:"courseImages.womenSoloImage",label:"Kursbild"},
+  ],
   nav:[],hero:[],stats:[],courses_captain:[],courses_harbor:[],pricing:[],howitworks:[],schedule:[],skipper:[],faq:[],testimonials:[],contact:[],footer:[],
   coaches_hero:[],coaches_context:[],coaches_offer:[],coaches_audience:[],coaches_formats:[],coaches_handled:[],coaches_sailing:[],coaches_yacht:[],coaches_process:[],coaches_logistics:[],coaches_onboard:[],coaches_safety:[],coaches_costs:[],coaches_form:[],coaches_final:[],
   retreat_offers:[],retreat_trainings:[],retreat_audience:[],retreat_services:[],retreat_concept:[],retreat_whyyacht:[],retreat_logistics:[],retreat_onboard:[],retreat_safety:[],retreat_cost:[],retreat_form:[],retreat_final:[],
@@ -254,6 +259,7 @@ const KEY_LABELS: Record<string, string> = {
   "hero.badge":"Badge/Slogan","hero.title":"Haupttitel","hero.subtitle":"Untertitel",
   "courses.captain.price":"Preis Kapitänkurs","courses.captain.dates":"Termine Kapitänkurs (kommagetrennt)",
   "courses.harbor.price":"Preis Hafenmanöver","courses.harbor.dates":"Termine Hafenmanöver (kommagetrennt)",
+  "courses.womenSolo.title":"Titel Frauenkurs","courses.womenSolo.subtitle":"Untertitel Frauenkurs","courses.womenSolo.price":"Preis Frauenkurs","courses.womenSolo.dates":"Termine Frauenkurs (kommagetrennt)","courses.womenSolo.duration":"Dauer Frauenkurs","courses.womenSolo.badge":"Badge auf der Kurskarte","courses.womenSolo.capacityNote":"Kapazitätshinweis (max. Teilnehmerinnen)","courses.womenSolo.imageAlt":"Bild-Alt-Text (SEO / Barrierefreiheit)","courses.womenSolo.description":"Kurzbeschreibung auf der Karte","courses.womenSolo.licenseNote":"Hinweis: kein Lizenzkurs","courses.womenSolo.learnTitle":"Überschrift Lerninhalte","courses.womenSolo.centralMessage":"Zentrale Botschaft","courses.womenSolo.positioning":"Positionierung","courses.womenSolo.focus":"Fokus","courses.womenSolo.courseCharacter":"Kurscharakter","courses.womenSolo.limitationNote":"Abgrenzungshinweis","courses.womenSolo.ctaPrimary":"CTA Haupt-Button","courses.womenSolo.ctaSecondary":"CTA Zweit-Button","courses.location":"Hinweis: Kursort (unter den Karten)",
   "faq.q1":"Frage 1","faq.a1":"Antwort 1","faq.q2":"Frage 2","faq.a2":"Antwort 2","faq.q3":"Frage 3","faq.a3":"Antwort 3","faq.q4":"Frage 4","faq.a4":"Antwort 4","faq.q5":"Frage 5","faq.a5":"Antwort 5","faq.q6":"Frage 6","faq.a6":"Antwort 6","faq.q7":"Frage 7","faq.a7":"Antwort 7","faq.q8":"Frage 8","faq.a8":"Antwort 8","faq.q9":"Frage 9","faq.a9":"Antwort 9","faq.q10":"Frage 10","faq.a10":"Antwort 10",
 };
 
@@ -449,10 +455,9 @@ const AdminFullPage = () => {
               </p>
             </div>
             <div className="space-y-1">
-              {currentTab.source==="translations"
-                ? (TAB_KEYS[activeTab].length>0 ? TAB_KEYS[activeTab].map(key => renderTranslationField(key)) : <p className="text-white/40 text-sm">Keine Felder.</p>)
-                : CONTENT_FIELDS[activeTab].map(f => renderContentField(f.field, f.label, f.multiline))
-              }
+              {TAB_KEYS[activeTab].map(key => renderTranslationField(key))}
+              {CONTENT_FIELDS[activeTab].map(f => renderContentField(f.field, f.label, f.multiline))}
+              {TAB_KEYS[activeTab].length===0 && CONTENT_FIELDS[activeTab].length===0 && <p className="text-white/40 text-sm">Keine Felder.</p>}
             </div>
             <div className="mt-8 pt-6 border-t border-white/10">
               <Button onClick={handleSave} className={`w-full py-3 text-base font-semibold transition-all ${saved?"bg-green-600 hover:bg-green-700":"bg-blue-600 hover:bg-blue-700"}`}>
