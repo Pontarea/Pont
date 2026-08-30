@@ -76,7 +76,7 @@ export const usePontareaContent = () => {
       title: "Hafenmanöver",
       subtitle: "Anlege & Manöver-Training",
       price: "€1.600",
-      dates: ["03.10.2026", "16.05.2027"],
+      dates: ["16.05.2027"],
       duration: "7 Tage",
       description: "Einzigartiger Kurs, der NUR auf Hafenmanöver fokussiert - das Schwerste beim Segeln! Training im Hafen und nahegelegenen Lagunen. Der Ablauf wird flexibel an das Tempo der Gruppe angepasst und gemeinsam mit dem Team entschieden.",
       image: "./harbor-maneuvers-new.webp",
@@ -143,6 +143,9 @@ export const usePontareaContent = () => {
       title: "Pontarea – Yachting, Training & Events in Kroatien",
       description: "Sportbootführerschein B in 7 Tagen – Intensivkurse in Marina Dalmacija, Kroatien. Dazu Yachtcharter, Retreats & Events auf See. Max. 6 Teilnehmer, Theorie, Praxis & Prüfung.",
       keywords: "Segelkurs, Sportbootführerschein, Yachtcharter Kroatien, Yacht mieten, Retreat auf See, Events auf See, Marina Dalmacija, Skipper Lizenz"
+    },
+    courseImages: {
+      womenSoloImage: "./women-solo-helm.webp"
     },
     coachesImages: {
       hero: "./catamaran-retreat.webp",
